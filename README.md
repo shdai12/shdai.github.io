@@ -1,8 +1,8 @@
-## Welcome to GitHub Pages
+## Welcome, this is my project the Pricing Test.
 
-You can use the [editor on GitHub](https://github.com/shdai12/shdai.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- Conduct AB testing (t-test) to determine the pricing strategy for a software product and improve the revenue by 18%
+- Run chi-squared tests to address variable correlations and ensure random splitting of experimental and control groups
+- Perform feature analysis to manage the tradeoff between price and volume and derive actionable insights, including launching special marketing programs and examining incompatibility issues, for subsets of users
 
 ### Markdown
 
