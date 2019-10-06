@@ -1,0 +1,1015 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "EA3muKq5ZaPz"
+   },
+   "source": [
+    "# Pre-work"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "aMZruxqFJMDa"
+   },
+   "source": [
+    "**Set-up**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/",
+     "height": 1000
+    },
+    "colab_type": "code",
+    "id": "_-P--zMNkyy5",
+    "outputId": "736dc416-f8d0-4eef-c688-750ac629fc19"
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.\n",
+      "  from ._conv import register_converters as _register_converters\n"
+     ]
+    },
+    {
+     "ename": "KeyboardInterrupt",
+     "evalue": "",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-2-cf77d2fb2387>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     18\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     19\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mtensorflow\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mtf\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 20\u001b[0;31m \u001b[0;32mimport\u001b[0m \u001b[0mpandas\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mpd\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     21\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mpandas\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mSeries\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mDataFrame\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     22\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m/anaconda3/lib/python3.6/site-packages/pandas/__init__.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     55\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     56\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mpandas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mutil\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_print_versions\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mshow_versions\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 57\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mpandas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mio\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mapi\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0;34m*\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     58\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mpandas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mutil\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_tester\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mtest\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     59\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mpandas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtesting\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m/anaconda3/lib/python3.6/site-packages/pandas/io/api.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mpandas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mio\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mclipboards\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mread_clipboard\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      9\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mpandas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mio\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mexcel\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mExcelFile\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mExcelWriter\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mread_excel\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 10\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mpandas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mio\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpytables\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mHDFStore\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mget_store\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mread_hdf\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     11\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mpandas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mio\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mjson\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mread_json\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     12\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mpandas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mio\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mhtml\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mread_html\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m/anaconda3/lib/python3.6/site-packages/pandas/io/pytables.py\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     48\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mpandas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcore\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcomputation\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpytables\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mExpr\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mmaybe_expression\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     49\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 50\u001b[0;31m \u001b[0;32mfrom\u001b[0m \u001b[0mpandas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_libs\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0malgos\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mlib\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mwriters\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mlibwriters\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     51\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0mpandas\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_libs\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mtslibs\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mtimezones\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     52\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32mpandas/_libs/writers.pyx\u001b[0m in \u001b[0;36minit pandas._libs.writers\u001b[0;34m()\u001b[0m\n",
+      "\u001b[0;32m/anaconda3/lib/python3.6/importlib/_bootstrap.py\u001b[0m in \u001b[0;36m_find_and_load\u001b[0;34m(name, import_)\u001b[0m\n",
+      "\u001b[0;31mKeyboardInterrupt\u001b[0m: "
+     ]
+    }
+   ],
+   "source": [
+    "#!pip install tensorflow==1.2.0\n",
+    "#!pip install keras==2.0.9\n",
+    "\n",
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "#from google.colab import files\n",
+    "import io\n",
+    "\n",
+    "from tensorflow.python.keras.models import Sequential\n",
+    "from tensorflow.python.keras.layers import Dense, LSTM, Dropout\n",
+    "from tensorflow.python.keras.callbacks import Callback\n",
+    "from tensorflow.python.keras.callbacks import EarlyStopping\n",
+    "from tensorflow.python.keras.callbacks import ModelCheckpoint\n",
+    "\n",
+    "seed = 7\n",
+    "np.random.seed(seed)\n",
+    "\n",
+    "import tensorflow as tf\n",
+    "import pandas as pd\n",
+    "from pandas import Series,DataFrame\n",
+    "\n",
+    "import io\n",
+    "from io import StringIO\n",
+    "\n",
+    "from statistics import mean \n",
+    "\n",
+    "from sklearn.model_selection import train_test_split\n",
+    "from sklearn.metrics import mean_absolute_error,mean_squared_error\n",
+    "from sklearn.metrics import f1_score, accuracy_score, recall_score, precision_score\n",
+    "from sklearn import preprocessing\n",
+    "\n",
+    "%matplotlib inline\n",
+    "import matplotlib as mpl\n",
+    "from matplotlib import pylab as plt\n",
+    "import matplotlib.dates as mdates\n",
+    "import seaborn as sns\n",
+    "import matplotlib.ticker as ticker\n",
+    "\n",
+    "import collections\n",
+    "\n",
+    "from keras import backend as k\n",
+    "# from tensorflow.python.framework import ops\n",
+    "# ops.reset_default_graph()    "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "29IRk9evJ0yI"
+   },
+   "source": [
+    "**Process Data**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "JZJK8wwWbdr-"
+   },
+   "outputs": [],
+   "source": [
+    "def data_process():\n",
+    "  data = pd.read_csv('DryCreek_input_add_label.csv')\n",
+    "  data = data.iloc[:, 1:] # remove date col cuz it's meaningless here\n",
+    "  # data['Date_col_name'] = pd.to_datetime(data['Date_col_name'],unit='s') if here is timestamp\n",
+    "  data = data.astype('float64')\n",
+    "  data.info()\n",
+    "  \n",
+    "  return data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/",
+     "height": 482,
+     "resources": {
+      "http://localhost:8080/nbextensions/google.colab/files.js": {
+       "data": "Ly8gQ29weXJpZ2h0IDIwMTcgR29vZ2xlIExMQwovLwovLyBMaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgIkxpY2Vuc2UiKTsKLy8geW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLgovLyBZb3UgbWF5IG9idGFpbiBhIGNvcHkgb2YgdGhlIExpY2Vuc2UgYXQKLy8KLy8gICAgICBodHRwOi8vd3d3LmFwYWNoZS5vcmcvbGljZW5zZXMvTElDRU5TRS0yLjAKLy8KLy8gVW5sZXNzIHJlcXVpcmVkIGJ5IGFwcGxpY2FibGUgbGF3IG9yIGFncmVlZCB0byBpbiB3cml0aW5nLCBzb2Z0d2FyZQovLyBkaXN0cmlidXRlZCB1bmRlciB0aGUgTGljZW5zZSBpcyBkaXN0cmlidXRlZCBvbiBhbiAiQVMgSVMiIEJBU0lTLAovLyBXSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC4KLy8gU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZAovLyBsaW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS4KCi8qKgogKiBAZmlsZW92ZXJ2aWV3IEhlbHBlcnMgZm9yIGdvb2dsZS5jb2xhYiBQeXRob24gbW9kdWxlLgogKi8KKGZ1bmN0aW9uKHNjb3BlKSB7CmZ1bmN0aW9uIHNwYW4odGV4dCwgc3R5bGVBdHRyaWJ1dGVzID0ge30pIHsKICBjb25zdCBlbGVtZW50ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc3BhbicpOwogIGVsZW1lbnQudGV4dENvbnRlbnQgPSB0ZXh0OwogIGZvciAoY29uc3Qga2V5IG9mIE9iamVjdC5rZXlzKHN0eWxlQXR0cmlidXRlcykpIHsKICAgIGVsZW1lbnQuc3R5bGVba2V5XSA9IHN0eWxlQXR0cmlidXRlc1trZXldOwogIH0KICByZXR1cm4gZWxlbWVudDsKfQoKLy8gTWF4IG51bWJlciBvZiBieXRlcyB3aGljaCB3aWxsIGJlIHVwbG9hZGVkIGF0IGEgdGltZS4KY29uc3QgTUFYX1BBWUxPQURfU0laRSA9IDEwMCAqIDEwMjQ7Ci8vIE1heCBhbW91bnQgb2YgdGltZSB0byBibG9jayB3YWl0aW5nIGZvciB0aGUgdXNlci4KY29uc3QgRklMRV9DSEFOR0VfVElNRU9VVF9NUyA9IDMwICogMTAwMDsKCmZ1bmN0aW9uIF91cGxvYWRGaWxlcyhpbnB1dElkLCBvdXRwdXRJZCkgewogIGNvbnN0IHN0ZXBzID0gdXBsb2FkRmlsZXNTdGVwKGlucHV0SWQsIG91dHB1dElkKTsKICBjb25zdCBvdXRwdXRFbGVtZW50ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQob3V0cHV0SWQpOwogIC8vIENhY2hlIHN0ZXBzIG9uIHRoZSBvdXRwdXRFbGVtZW50IHRvIG1ha2UgaXQgYXZhaWxhYmxlIGZvciB0aGUgbmV4dCBjYWxsCiAgLy8gdG8gdXBsb2FkRmlsZXNDb250aW51ZSBmcm9tIFB5dGhvbi4KICBvdXRwdXRFbGVtZW50LnN0ZXBzID0gc3RlcHM7CgogIHJldHVybiBfdXBsb2FkRmlsZXNDb250aW51ZShvdXRwdXRJZCk7Cn0KCi8vIFRoaXMgaXMgcm91Z2hseSBhbiBhc3luYyBnZW5lcmF0b3IgKG5vdCBzdXBwb3J0ZWQgaW4gdGhlIGJyb3dzZXIgeWV0KSwKLy8gd2hlcmUgdGhlcmUgYXJlIG11bHRpcGxlIGFzeW5jaHJvbm91cyBzdGVwcyBhbmQgdGhlIFB5dGhvbiBzaWRlIGlzIGdvaW5nCi8vIHRvIHBvbGwgZm9yIGNvbXBsZXRpb24gb2YgZWFjaCBzdGVwLgovLyBUaGlzIHVzZXMgYSBQcm9taXNlIHRvIGJsb2NrIHRoZSBweXRob24gc2lkZSBvbiBjb21wbGV0aW9uIG9mIGVhY2ggc3RlcCwKLy8gdGhlbiBwYXNzZXMgdGhlIHJlc3VsdCBvZiB0aGUgcHJldmlvdXMgc3RlcCBhcyB0aGUgaW5wdXQgdG8gdGhlIG5leHQgc3RlcC4KZnVuY3Rpb24gX3VwbG9hZEZpbGVzQ29udGludWUob3V0cHV0SWQpIHsKICBjb25zdCBvdXRwdXRFbGVtZW50ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQob3V0cHV0SWQpOwogIGNvbnN0IHN0ZXBzID0gb3V0cHV0RWxlbWVudC5zdGVwczsKCiAgY29uc3QgbmV4dCA9IHN0ZXBzLm5leHQob3V0cHV0RWxlbWVudC5sYXN0UHJvbWlzZVZhbHVlKTsKICByZXR1cm4gUHJvbWlzZS5yZXNvbHZlKG5leHQudmFsdWUucHJvbWlzZSkudGhlbigodmFsdWUpID0+IHsKICAgIC8vIENhY2hlIHRoZSBsYXN0IHByb21pc2UgdmFsdWUgdG8gbWFrZSBpdCBhdmFpbGFibGUgdG8gdGhlIG5leHQKICAgIC8vIHN0ZXAgb2YgdGhlIGdlbmVyYXRvci4KICAgIG91dHB1dEVsZW1lbnQubGFzdFByb21pc2VWYWx1ZSA9IHZhbHVlOwogICAgcmV0dXJuIG5leHQudmFsdWUucmVzcG9uc2U7CiAgfSk7Cn0KCi8qKgogKiBHZW5lcmF0b3IgZnVuY3Rpb24gd2hpY2ggaXMgY2FsbGVkIGJldHdlZW4gZWFjaCBhc3luYyBzdGVwIG9mIHRoZSB1cGxvYWQKICogcHJvY2Vzcy4KICogQHBhcmFtIHtzdHJpbmd9IGlucHV0SWQgRWxlbWVudCBJRCBvZiB0aGUgaW5wdXQgZmlsZSBwaWNrZXIgZWxlbWVudC4KICogQHBhcmFtIHtzdHJpbmd9IG91dHB1dElkIEVsZW1lbnQgSUQgb2YgdGhlIG91dHB1dCBkaXNwbGF5LgogKiBAcmV0dXJuIHshSXRlcmFibGU8IU9iamVjdD59IEl0ZXJhYmxlIG9mIG5leHQgc3RlcHMuCiAqLwpmdW5jdGlvbiogdXBsb2FkRmlsZXNTdGVwKGlucHV0SWQsIG91dHB1dElkKSB7CiAgY29uc3QgaW5wdXRFbGVtZW50ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoaW5wdXRJZCk7CiAgaW5wdXRFbGVtZW50LmRpc2FibGVkID0gZmFsc2U7CgogIGNvbnN0IG91dHB1dEVsZW1lbnQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChvdXRwdXRJZCk7CiAgb3V0cHV0RWxlbWVudC5pbm5lckhUTUwgPSAnJzsKCiAgY29uc3QgcGlja2VkUHJvbWlzZSA9IG5ldyBQcm9taXNlKChyZXNvbHZlKSA9PiB7CiAgICBpbnB1dEVsZW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignY2hhbmdlJywgKGUpID0+IHsKICAgICAgcmVzb2x2ZShlLnRhcmdldC5maWxlcyk7CiAgICB9KTsKICB9KTsKCiAgY29uc3QgY2FuY2VsID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYnV0dG9uJyk7CiAgaW5wdXRFbGVtZW50LnBhcmVudEVsZW1lbnQuYXBwZW5kQ2hpbGQoY2FuY2VsKTsKICBjYW5jZWwudGV4dENvbnRlbnQgPSAnQ2FuY2VsIHVwbG9hZCc7CiAgY29uc3QgY2FuY2VsUHJvbWlzZSA9IG5ldyBQcm9taXNlKChyZXNvbHZlKSA9PiB7CiAgICBjYW5jZWwub25jbGljayA9ICgpID0+IHsKICAgICAgcmVzb2x2ZShudWxsKTsKICAgIH07CiAgfSk7CgogIC8vIENhbmNlbCB1cGxvYWQgaWYgdXNlciBoYXNuJ3QgcGlja2VkIGFueXRoaW5nIGluIHRpbWVvdXQuCiAgY29uc3QgdGltZW91dFByb21pc2UgPSBuZXcgUHJvbWlzZSgocmVzb2x2ZSkgPT4gewogICAgc2V0VGltZW91dCgoKSA9PiB7CiAgICAgIHJlc29sdmUobnVsbCk7CiAgICB9LCBGSUxFX0NIQU5HRV9USU1FT1VUX01TKTsKICB9KTsKCiAgLy8gV2FpdCBmb3IgdGhlIHVzZXIgdG8gcGljayB0aGUgZmlsZXMuCiAgY29uc3QgZmlsZXMgPSB5aWVsZCB7CiAgICBwcm9taXNlOiBQcm9taXNlLnJhY2UoW3BpY2tlZFByb21pc2UsIHRpbWVvdXRQcm9taXNlLCBjYW5jZWxQcm9taXNlXSksCiAgICByZXNwb25zZTogewogICAgICBhY3Rpb246ICdzdGFydGluZycsCiAgICB9CiAgfTsKCiAgaWYgKCFmaWxlcykgewogICAgcmV0dXJuIHsKICAgICAgcmVzcG9uc2U6IHsKICAgICAgICBhY3Rpb246ICdjb21wbGV0ZScsCiAgICAgIH0KICAgIH07CiAgfQoKICBjYW5jZWwucmVtb3ZlKCk7CgogIC8vIERpc2FibGUgdGhlIGlucHV0IGVsZW1lbnQgc2luY2UgZnVydGhlciBwaWNrcyBhcmUgbm90IGFsbG93ZWQuCiAgaW5wdXRFbGVtZW50LmRpc2FibGVkID0gdHJ1ZTsKCiAgZm9yIChjb25zdCBmaWxlIG9mIGZpbGVzKSB7CiAgICBjb25zdCBsaSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2xpJyk7CiAgICBsaS5hcHBlbmQoc3BhbihmaWxlLm5hbWUsIHtmb250V2VpZ2h0OiAnYm9sZCd9KSk7CiAgICBsaS5hcHBlbmQoc3BhbigKICAgICAgICBgKCR7ZmlsZS50eXBlIHx8ICduL2EnfSkgLSAke2ZpbGUuc2l6ZX0gYnl0ZXMsIGAgKwogICAgICAgIGBsYXN0IG1vZGlmaWVkOiAkewogICAgICAgICAgICBmaWxlLmxhc3RNb2RpZmllZERhdGUgPyBmaWxlLmxhc3RNb2RpZmllZERhdGUudG9Mb2NhbGVEYXRlU3RyaW5nKCkgOgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAnbi9hJ30gLSBgKSk7CiAgICBjb25zdCBwZXJjZW50ID0gc3BhbignMCUgZG9uZScpOwogICAgbGkuYXBwZW5kQ2hpbGQocGVyY2VudCk7CgogICAgb3V0cHV0RWxlbWVudC5hcHBlbmRDaGlsZChsaSk7CgogICAgY29uc3QgZmlsZURhdGFQcm9taXNlID0gbmV3IFByb21pc2UoKHJlc29sdmUpID0+IHsKICAgICAgY29uc3QgcmVhZGVyID0gbmV3IEZpbGVSZWFkZXIoKTsKICAgICAgcmVhZGVyLm9ubG9hZCA9IChlKSA9PiB7CiAgICAgICAgcmVzb2x2ZShlLnRhcmdldC5yZXN1bHQpOwogICAgICB9OwogICAgICByZWFkZXIucmVhZEFzQXJyYXlCdWZmZXIoZmlsZSk7CiAgICB9KTsKICAgIC8vIFdhaXQgZm9yIHRoZSBkYXRhIHRvIGJlIHJlYWR5LgogICAgbGV0IGZpbGVEYXRhID0geWllbGQgewogICAgICBwcm9taXNlOiBmaWxlRGF0YVByb21pc2UsCiAgICAgIHJlc3BvbnNlOiB7CiAgICAgICAgYWN0aW9uOiAnY29udGludWUnLAogICAgICB9CiAgICB9OwoKICAgIC8vIFVzZSBhIGNodW5rZWQgc2VuZGluZyB0byBhdm9pZCBtZXNzYWdlIHNpemUgbGltaXRzLiBTZWUgYi82MjExNTY2MC4KICAgIGxldCBwb3NpdGlvbiA9IDA7CiAgICB3aGlsZSAocG9zaXRpb24gPCBmaWxlRGF0YS5ieXRlTGVuZ3RoKSB7CiAgICAgIGNvbnN0IGxlbmd0aCA9IE1hdGgubWluKGZpbGVEYXRhLmJ5dGVMZW5ndGggLSBwb3NpdGlvbiwgTUFYX1BBWUxPQURfU0laRSk7CiAgICAgIGNvbnN0IGNodW5rID0gbmV3IFVpbnQ4QXJyYXkoZmlsZURhdGEsIHBvc2l0aW9uLCBsZW5ndGgpOwogICAgICBwb3NpdGlvbiArPSBsZW5ndGg7CgogICAgICBjb25zdCBiYXNlNjQgPSBidG9hKFN0cmluZy5mcm9tQ2hhckNvZGUuYXBwbHkobnVsbCwgY2h1bmspKTsKICAgICAgeWllbGQgewogICAgICAgIHJlc3BvbnNlOiB7CiAgICAgICAgICBhY3Rpb246ICdhcHBlbmQnLAogICAgICAgICAgZmlsZTogZmlsZS5uYW1lLAogICAgICAgICAgZGF0YTogYmFzZTY0LAogICAgICAgIH0sCiAgICAgIH07CiAgICAgIHBlcmNlbnQudGV4dENvbnRlbnQgPQogICAgICAgICAgYCR7TWF0aC5yb3VuZCgocG9zaXRpb24gLyBmaWxlRGF0YS5ieXRlTGVuZ3RoKSAqIDEwMCl9JSBkb25lYDsKICAgIH0KICB9CgogIC8vIEFsbCBkb25lLgogIHlpZWxkIHsKICAgIHJlc3BvbnNlOiB7CiAgICAgIGFjdGlvbjogJ2NvbXBsZXRlJywKICAgIH0KICB9Owp9CgpzY29wZS5nb29nbGUgPSBzY29wZS5nb29nbGUgfHwge307CnNjb3BlLmdvb2dsZS5jb2xhYiA9IHNjb3BlLmdvb2dsZS5jb2xhYiB8fCB7fTsKc2NvcGUuZ29vZ2xlLmNvbGFiLl9maWxlcyA9IHsKICBfdXBsb2FkRmlsZXMsCiAgX3VwbG9hZEZpbGVzQ29udGludWUsCn07Cn0pKHNlbGYpOwo=",
+       "headers": [
+        [
+         "content-type",
+         "application/javascript"
+        ]
+       ],
+       "ok": true,
+       "status": 200,
+       "status_text": ""
+      }
+     }
+    },
+    "colab_type": "code",
+    "id": "WSZF1EcFiBjw",
+    "outputId": "2b4c5c98-4aa7-43c4-c925-ba031f1a825a"
+   },
+   "outputs": [],
+   "source": [
+    "Data = data_process()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "rEQ6PNMEVWI3"
+   },
+   "source": [
+    "**Visualize data**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/",
+     "height": 409
+    },
+    "colab_type": "code",
+    "id": "9D7u0KIdVTjc",
+    "outputId": "f3525a46-9565-40d3-f0b8-c0575c4f7f5a"
+   },
+   "outputs": [],
+   "source": [
+    "# plot the overall data\n",
+    "# Data.plot(figsize=(18,7))\n",
+    "\n",
+    "# create the plot space upon which to plot the data\n",
+    "fig, ax= plt.subplots()\n",
+    "\n",
+    "# add the x-axis and the y-axis to the plot\n",
+    "ax.plot(Data['Discharge'], \n",
+    "        color = input('what color do you want? '))\n",
+    "\n",
+    "# rotate tick labels\n",
+    "plt.setp(ax.get_xticklabels(), rotation=45)\n",
+    "\n",
+    "# set title and labels for axes\n",
+    "ax.set(xlabel=\"Date\",\n",
+    "       ylabel=\"Discharge\",\n",
+    "       title=\"DryCreek Discharge\");\n",
+    "\n",
+    "# set plot size\n",
+    "fig.set_size_inches(18.5, 5.5)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "9-jQKOW_VBg9"
+   },
+   "source": [
+    "# Nested Cross Validation"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "7GTGCHTyQOvF"
+   },
+   "source": [
+    "**Day Forward-Chaining Nested Cross-Validation**\n",
+    "\n",
+    "![alt text](https://miro.medium.com/max/2056/1*2-zaRQ-dsv8KWxOlzc8VaA.png)\n",
+    "*source: https://towardsdatascience.com/time-series-nested-cross-validation-76adba623eb9*"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "26-b4gw9ZDss"
+   },
+   "source": [
+    "Here, I implement 4-1, 8-1, 12-1, 15.5-1 (in yrs) as training set vs.testing set"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "HGLNhMZrc-fg"
+   },
+   "source": [
+    "# Multivariate LSTM Time Series Model\n",
+    "\n",
+    "The model without considering lagging and previous label data that we already tried before has huge error, thus here I only cover the LSTM model considering lagging and previous label data."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "xFIbuMWmzv8q"
+   },
+   "source": [
+    "## Set-up"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "ebbBfjZyOHu9"
+   },
+   "outputs": [],
+   "source": [
+    "def NS(o,s): # the larger the value, the better the prediction\n",
+    "    \"\"\"\n",
+    "    Nash Sutcliffe efficiency coefficient\n",
+    "    input:\n",
+    "        s: simulated\n",
+    "        o: observed\n",
+    "    output:\n",
+    "        ns: Nash Sutcliffe efficient coefficient\n",
+    "    \"\"\"\n",
+    "    eps = 1e-5\n",
+    "#    return 1 - sum((np.log(s+eps)-np.log(o+eps))**2)/sum((np.log(o+eps)-np.mean(np.log(o+eps)))**2) \n",
+    "    return 1 - np.sum((s-o)**2)/np.sum((o-np.mean(o))**2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "smU3Nb8-pGoK"
+   },
+   "outputs": [],
+   "source": [
+    "def to_supervised(data, dropNa, lag):\n",
+    "    \n",
+    "    df = pd.DataFrame(data)\n",
+    "    column = []\n",
+    "    column.append(df)\n",
+    "    for i in range(1,lag+1):\n",
+    "        column.append(df.shift(-i))\n",
+    "    df = pd.concat(column,axis=1)\n",
+    "    \n",
+    "    # drop rows with missing values\n",
+    "    df.dropna(inplace = True)\n",
+    "    \n",
+    "    # specify columns for input and output pairs\n",
+    "    features = data.shape[1]\n",
+    "    df = df.values\n",
+    "    supervised_data = df[:,:features*lag]\n",
+    "    supervised_data = np.column_stack( [supervised_data, df[:,features*lag]])\n",
+    "    \n",
+    "    return supervised_data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "SLp7VWQXlghw"
+   },
+   "outputs": [],
+   "source": [
+    "def apply_timeSteps(timeSteps):\n",
+    "  values = Data.values\n",
+    "  supervised = to_supervised(values, True, timeSteps)\n",
+    "  #print(pd.DataFrame(supervised).head())\n",
+    "  \n",
+    "  return supervised"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "iMNHkHoBBzTR"
+   },
+   "outputs": [],
+   "source": [
+    "# set the training and testing set\n",
+    "def set_split_time(training_year, testing_year):\n",
+    "  split_time = 365*training_year\n",
+    "  end_time = 365*(training_year+testing_year)\n",
+    "  \n",
+    "  return split_time, end_time"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "xvE6p699oRb7"
+   },
+   "outputs": [],
+   "source": [
+    "def data_split(supervised, timeSteps, split_time, end_time):\n",
+    "  features = Data.shape[1]\n",
+    "  \n",
+    "  X = supervised[:,:features*timeSteps]\n",
+    "  y = supervised[:,features*timeSteps]\n",
+    "  \n",
+    "  x_train = X[:split_time,:]\n",
+    "  x_test = X[split_time:end_time,:]\n",
+    "  y_train = y[:split_time]\n",
+    "  y_test = y[split_time:end_time]\n",
+    "  \n",
+    "  # reshape data to fit for lstm\n",
+    "  x_train = x_train.reshape(x_train.shape[0], timeSteps, features)\n",
+    "  x_test = x_test.reshape(x_test.shape[0], timeSteps, features)\n",
+    "  y_train = y_train.reshape(y_train.shape[0],1)\n",
+    "  y_test = y_test.reshape(y_test.shape[0],1)\n",
+    "  \n",
+    "  # split the training set into training subset and validation subset\n",
+    "  validation_perc = 0.2\n",
+    "  val_split = round(len(x_train)*validation_perc)\n",
+    "  \n",
+    "  x_train_subset = x_train[:-val_split,:,:]\n",
+    "  y_train_subset = y_train[:-val_split]\n",
+    "  x_validation_subset = x_train[-val_split:,:,:]\n",
+    "  y_validation_subset = y_train[-val_split:]\n",
+    "  \n",
+    "  print(\"Input training shape and testing shape are:\", x_train.shape, x_test.shape, \n",
+    "        \"\\nOutput training shape and testing shape are:\", y_train.shape, y_test.shape,\n",
+    "        \"\\nInput training subset shape and validation subset shape are:\", x_train_subset.shape, x_validation_subset.shape,\n",
+    "        \"\\nOutput training subset shape and validation subset shape are:\", y_train_subset.shape, y_validation_subset.shape)\n",
+    "  \n",
+    "  return x_train, x_test, y_train, y_test, x_train_subset, x_validation_subset, y_train_subset, y_validation_subset, val_split"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "F1OsKjNbky1j"
+   },
+   "outputs": [],
+   "source": [
+    "# define the model\n",
+    "def lstm_model_one_hidden_layer(x_train, hidden_layer):\n",
+    "  model = Sequential()\n",
+    "  model.add(LSTM(10,input_shape = (x_train.shape[1],x_train.shape[2])))\n",
+    "  \n",
+    "  if hidden_layer == 1:\n",
+    "    model.add(Dense(5, activation=\"relu\"))\n",
+    "  \n",
+    "  model.add(Dropout(0.4))\n",
+    "  model.add(Dense(1))\n",
+    "  return model"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "Hurio8A1M_iy"
+   },
+   "outputs": [],
+   "source": [
+    "callbacks = [\n",
+    "    # EarlyStoppingByLossVal(monitor='val_loss', patience=0, verbose=1, mode='auto'),\n",
+    "    EarlyStopping(monitor='val_loss', patience=3, verbose=0),\n",
+    "    # ModelCheckpoint(filepath, monitor='val_loss', save_best_only=True, verbose=0),\n",
+    "]\n",
+    "\n",
+    "def model_fit(model, optimizer, x_train_subset, y_train_subset, x_validation_subset, y_validation_subset, callbacks):\n",
+    "  model.compile(loss = \"mean_squared_error\", optimizer = optimizer)\n",
+    "  history =  model.fit(x_train_subset, y_train_subset, validation_data = (x_validation_subset, y_validation_subset), epochs = 150 , batch_size = 8, verbose = 0, shuffle = False, callbacks=callbacks)\n",
+    "  \n",
+    "  return model"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "CY72_OjWPYfb"
+   },
+   "outputs": [],
+   "source": [
+    "Callbacks = [\n",
+    "    # EarlyStoppingByLossVal(monitor='val_loss', patience=0, verbose=1, mode='auto'),\n",
+    "    EarlyStopping(monitor='loss', patience=3, verbose=0),\n",
+    "    # ModelCheckpoint(filepath, monitor='val_loss', save_best_only=True, verbose=0),\n",
+    "]\n",
+    "\n",
+    "def final_model_fit(model, optimizer, x_train, y_train, callbacks):\n",
+    "  model.compile(loss = \"mean_squared_error\", optimizer = optimizer)\n",
+    "  history =  model.fit(x_train, y_train, epochs = 150 , batch_size = 8, verbose = 0, shuffle = False, callbacks=Callbacks)\n",
+    "  \n",
+    "  return model"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "CIkNHgEuqkCx"
+   },
+   "outputs": [],
+   "source": [
+    "def plot_series(time, series, format=\"-\", start=0, end=None):\n",
+    "    plt.plot(time[start:end], series[start:end], format)\n",
+    "    plt.xlabel(\"Time\")\n",
+    "    plt.ylabel(\"Value\")\n",
+    "    plt.grid(True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "2wT51GPHOI4W"
+   },
+   "outputs": [],
+   "source": [
+    "# validation prediction\n",
+    "def val_pred(model, split_time, val_split, x_validation_subset, y_validation_subset, plot):\n",
+    "  val_time = list(range(split_time - val_split, split_time))\n",
+    "  val_pred = model.predict(x_validation_subset)\n",
+    "  val_test = y_validation_subset\n",
+    "  \n",
+    "  # plot prediction\n",
+    "  if plot == True:\n",
+    "    plt.figure(figsize=(18, 6))\n",
+    "    plot_series(val_time, val_test)\n",
+    "    plot_series(val_time, val_pred)\n",
+    "    plt.title(\"Validation Prediction\")\n",
+    "  \n",
+    "  mae = mean_absolute_error(val_test, val_pred)\n",
+    "  mse = mean_squared_error(val_pred,val_test)\n",
+    "  ns = NS(val_pred,val_test)\n",
+    "  \n",
+    "  print(\"MAE:\", mae, \"\\nMSE:\",mse, \"\\nNS:\",ns)\n",
+    "  \n",
+    "  return mae, mse, ns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "3bnUeR1wLTy7"
+   },
+   "outputs": [],
+   "source": [
+    "# test prediction\n",
+    "def test_pred(model, split_time, x_test, y_test, plot):\n",
+    "  test_time = list(range(split_time, split_time + x_test.shape[0]))\n",
+    "  y_pred = model.predict(x_test)\n",
+    "  \n",
+    "  # plot prediction\n",
+    "  if plot == True:\n",
+    "    plt.figure(figsize=(18, 6))\n",
+    "    plot_series(test_time, y_test)\n",
+    "    plot_series(test_time, y_pred)\n",
+    "    plt.title(\"Testing Prediction\")\n",
+    "  \n",
+    "  mae = mean_absolute_error(y_test, y_pred)\n",
+    "  mse = mean_squared_error(y_test, y_pred)\n",
+    "  ns = NS(y_test, y_pred)\n",
+    "  \n",
+    "  print(\"MAE:\", mae, \"\\nMSE:\",mse, \"\\nNS:\",ns)\n",
+    "  \n",
+    "  return mae, mse, ns"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "BBQZwm7_z6GY"
+   },
+   "outputs": [],
+   "source": [
+    "def run_model(timeSteps, optimizer, hidden_layer, plot, training_year, testing_year):\n",
+    "  \n",
+    "  supervised = apply_timeSteps(timeSteps)\n",
+    "  \n",
+    "  split_time, end_time = set_split_time(training_year, testing_year)\n",
+    "  x_train, x_test,y_train, y_test, x_train_subset, x_validation_subset, y_train_subset, y_validation_subset, val_split = data_split(supervised, timeSteps, split_time, end_time)\n",
+    "  \n",
+    "  model = lstm_model_one_hidden_layer(x_train, hidden_layer)\n",
+    "  model = model_fit(model, optimizer, x_train_subset, y_train_subset, x_validation_subset, y_validation_subset, callbacks)\n",
+    "  \n",
+    "  val_mae, val_mse, val_ns = val_pred(model, split_time, val_split, x_validation_subset, y_validation_subset, plot)\n",
+    "  test_mae, test_mse, test_ns = test_pred(model, split_time, x_test, y_test, plot)\n",
+    "  err = preprocessing.scale([val_mae, val_mse, 1-val_ns, test_mae, test_mse, 1-test_ns])\n",
+    "  grade = mean(err)\n",
+    "  \n",
+    "  print(\"Overall Performance:\", grade, \"\\n\")\n",
+    "  \n",
+    "  return grade"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "k2V93nTd_u1t"
+   },
+   "outputs": [],
+   "source": [
+    "# doesn't include ns in measurement\n",
+    "def run_model(timeSteps, optimizer, hidden_layer, plot, training_year, testing_year):\n",
+    "  \n",
+    "  supervised = apply_timeSteps(timeSteps)\n",
+    "  \n",
+    "  split_time, end_time = set_split_time(training_year, testing_year)\n",
+    "  x_train, x_test,y_train, y_test, x_train_subset, x_validation_subset, y_train_subset, y_validation_subset, val_split = data_split(supervised, timeSteps, split_time, end_time)\n",
+    "  \n",
+    "  model = lstm_model_one_hidden_layer(x_train, hidden_layer)\n",
+    "  model = model_fit(model, optimizer, x_train_subset, y_train_subset, x_validation_subset, y_validation_subset, callbacks)\n",
+    "  \n",
+    "  val_mae, val_mse, val_ns = val_pred(model, split_time, val_split, x_validation_subset, y_validation_subset, plot)\n",
+    "  test_mae, test_mse, test_ns = test_pred(model, split_time, x_test, y_test, plot)\n",
+    "  err = val_mae + val_mse + test_mae + test_mse\n",
+    "  grade = err/3\n",
+    "  \n",
+    "  print(\"Overall Performance:\", grade, \"\\n\")\n",
+    "  \n",
+    "  return grade"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "_SUX7nQVPuOc"
+   },
+   "outputs": [],
+   "source": [
+    "def run_final_model(timeSteps, optimizer, hidden_layer, plot, training_year, testing_year):\n",
+    "  \n",
+    "  supervised = apply_timeSteps(timeSteps)\n",
+    "  \n",
+    "  split_time, end_time = set_split_time(training_year, testing_year)\n",
+    "  x_train, x_test,y_train, y_test, x_train_subset, x_validation_subset, y_train_subset, y_validation_subset, val_split = data_split(supervised, timeSteps, split_time, end_time)\n",
+    "  \n",
+    "  model = lstm_model_one_hidden_layer(x_train, hidden_layer)\n",
+    "  model = final_model_fit(model, optimizer, x_train, y_train, callbacks)\n",
+    "  \n",
+    "  test_pred(model, split_time, x_test, y_test, plot)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {},
+    "colab_type": "code",
+    "id": "M-NqotJh-cvz"
+   },
+   "outputs": [],
+   "source": [
+    "def run_yrs(timeSteps, optimizer, hidden_layer, plot):\n",
+    "  \n",
+    "  '''\n",
+    "  M1 3-3-3\n",
+    "  6x365=2190, 0.8x2190=1752, 0.2x2190=438, 9x365=3285\n",
+    "  '''\n",
+    "  print(\"M1:\\n\")\n",
+    "  M1 = run_model(timeSteps, optimizer, hidden_layer, plot, 6, 3)\n",
+    "  \n",
+    "  '''\n",
+    "  M2 6-3-3\n",
+    "  9x365=3285, 0.8x3285=2628, 0.2x3285=657, 12x365=4380\n",
+    "  '''\n",
+    "  print(\"M2:\\n\")\n",
+    "  M2 = run_model(timeSteps, optimizer, hidden_layer, plot, 9, 3)\n",
+    "  \n",
+    "  '''\n",
+    "  M3 9-3-3\n",
+    "  12x365=4380, 0.8x4380=3504, 0.2x4380=876, 15x365=5475\n",
+    "  '''\n",
+    "  print(\"M3:\\n\")\n",
+    "  M3 = run_model(timeSteps, optimizer, hidden_layer, plot, 12, 3)\n",
+    "  \n",
+    "  error = round((M1 + M2 + M3), 4)\n",
+    "  print(\"Add-up Overall Performance:\", error)\n",
+    "  \n",
+    "  return error"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "RtlruVigBbfs"
+   },
+   "source": [
+    "## Parameter Chosen"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "dm3jaOE3m5zF"
+   },
+   "source": [
+    "**timeSteps = 1 && optimizer = 'adam' && hidden layer = 1**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/",
+     "height": 748
+    },
+    "colab_type": "code",
+    "id": "o2mveHUh_i4_",
+    "outputId": "9fc784b4-c26f-4e47-f9fb-54042aca10f8"
+   },
+   "outputs": [],
+   "source": [
+    "error1 = run_yrs(timeSteps = 1, optimizer = \"adam\", hidden_layer = 1, plot = False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "-lJfrG79BoKq"
+   },
+   "source": [
+    "**timeSteps = 2 && optimizer = 'adam' && hidden layer = 1**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/",
+     "height": 748
+    },
+    "colab_type": "code",
+    "id": "zebrFfT7BoKs",
+    "outputId": "d607af39-a688-4dde-db9b-6dcebc841888"
+   },
+   "outputs": [],
+   "source": [
+    "error2 = run_yrs(timeSteps = 2, optimizer = \"adam\", hidden_layer = 1, plot = False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "C0VurW0oCWvH"
+   },
+   "source": [
+    "**timeSteps = 5 && optimizer = 'adam' && hidden layer = 1**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/",
+     "height": 748
+    },
+    "colab_type": "code",
+    "id": "5G99Y3KlCWvI",
+    "outputId": "e6a02790-e807-4a92-b907-11f06427a00d"
+   },
+   "outputs": [],
+   "source": [
+    "error5 = run_yrs(timeSteps = 5, optimizer = \"adam\", hidden_layer = 1, plot = False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "_nkgz1DyCpSD"
+   },
+   "source": [
+    "**timeSteps = 1 && optimizer = 'SGD' && hidden layer = 1**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/",
+     "height": 748
+    },
+    "colab_type": "code",
+    "id": "OqqinYfxCpSJ",
+    "outputId": "ba247f28-8026-434c-c1e6-c3b34b49bdc9"
+   },
+   "outputs": [],
+   "source": [
+    "error1 = run_yrs(timeSteps = 1, optimizer = \"sgd\", hidden_layer = 1, plot = False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "RNvYljMeG8kW"
+   },
+   "source": [
+    "**timeSteps = 1 && optimizer = 'Adagrad' && hidden layer = 1**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/",
+     "height": 748
+    },
+    "colab_type": "code",
+    "id": "Hsk17RwNG8kZ",
+    "outputId": "d8bf10f5-15ee-4d59-b1aa-fe9d32109d4f"
+   },
+   "outputs": [],
+   "source": [
+    "error1 = run_yrs(timeSteps = 1, optimizer = \"adagrad\", hidden_layer = 1, plot = False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "toUaQNbiIqNh"
+   },
+   "source": [
+    "**timeSteps = 1 && optimizer = 'Adadelta' && hidden layer = 1**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/",
+     "height": 748
+    },
+    "colab_type": "code",
+    "id": "6Hf40yqxIqNm",
+    "outputId": "6e23eadb-12ac-4d93-b414-a937bb7eedbe"
+   },
+   "outputs": [],
+   "source": [
+    "error1 = run_yrs(timeSteps = 1, optimizer = \"adadelta\", hidden_layer = 1, plot = False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "lAdUk0zBJ4Wd"
+   },
+   "source": [
+    "**timeSteps = 1 && optimizer = 'RMSProp' && hidden layer = 1**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/",
+     "height": 748
+    },
+    "colab_type": "code",
+    "id": "hmCk9IqyJ4Wg",
+    "outputId": "2ce0b502-54fb-4efd-c16d-a47ea028c3c2"
+   },
+   "outputs": [],
+   "source": [
+    "error1 = run_yrs(timeSteps = 1, optimizer = \"RMSProp\", hidden_layer = 1, plot = False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "xsrCCzXLKudu"
+   },
+   "source": [
+    "**timeSteps = 1 && optimizer = 'Nadam' && hidden layer = 1**"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/",
+     "height": 748
+    },
+    "colab_type": "code",
+    "id": "KuzYZeY2Kudv",
+    "outputId": "390a4392-5d3e-4d0e-b09b-61f82b48d895"
+   },
+   "outputs": [],
+   "source": [
+    "error1 = run_yrs(timeSteps = 1, optimizer = \"Nadam\", hidden_layer = 1, plot = False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "FWndDJrcv_q7"
+   },
+   "source": [
+    "## Conclusion\n",
+    "\n",
+    "optimal hyperparameters: \n",
+    "\n",
+    "timeStep = 1;\n",
+    "\n",
+    "optimizer = 'Adagrad';\n",
+    "\n",
+    "hidden layer = 1;"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "N8NCKYC3CFDa"
+   },
+   "source": [
+    "TimeStep | Optimizer | Hidden Layer | Model Performance\n",
+    "---------|-----------|--------------|------------------\n",
+    "1        | Adam      | 1            | 0.2019\n",
+    "2        | Adam      | 1            | 0.2166\n",
+    "5        | Adam      | 1            | 0.2203\n",
+    "1        | SGD       | 1            | 0.2834\n",
+    "1        | Adagrad   | 1            | 0.1707\n",
+    "1        | Adadelta  | 1            | 0.1917\n",
+    "1        | RMSProp   | 1            | 0.1819\n",
+    "1        | Nadam     | 1            | 0.1861\n",
+    "1        | Adagrad   | 0            | 0.2034\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "colab_type": "text",
+    "id": "oNXM2qCXwL0l"
+   },
+   "source": [
+    "## M4 Final\n",
+    "\n",
+    "*need to be completed*"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/",
+     "height": 523
+    },
+    "colab_type": "code",
+    "id": "7BxB4mlXOvFH",
+    "outputId": "ac25802f-2a49-486b-d4b6-db9d44490796"
+   },
+   "outputs": [],
+   "source": [
+    "M3 = run_final_model(timeSteps = 1, optimizer = \"Adagrad\", hidden_layer = 1, plot = True, training_year = 12, testing_year = 3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "accelerator": "GPU",
+  "colab": {
+   "collapsed_sections": [
+    "9-jQKOW_VBg9",
+    "RtlruVigBbfs"
+   ],
+   "name": "LSTM DryCreek 2019.10.2.ipynb",
+   "provenance": []
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 1
+}
