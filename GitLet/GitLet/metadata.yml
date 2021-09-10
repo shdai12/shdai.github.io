@@ -1,0 +1,18 @@
+---
+:id: 8511011
+:submitters:
+- :name: Olivia Dai
+  :email: odai20@berkeley.edu
+- :name: Sanwu Luo
+  :email: sanwuluo35@berkeley.edu
+- :name: Gun Kim
+  :email: gunyeup94@berkeley.edu
+- :name: Jinwoo Hong
+  :email: zzzinwoo@berkeley.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2018-07-24 02:04:30.241000000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2018-07-23 19:04:30.241000000 Z
+:status: processed
+:score: 29.455
