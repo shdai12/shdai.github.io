@@ -1,0 +1,14 @@
+---
+:id: 8562873
+:submitters:
+- :name: Olivia Dai
+  :email: odai20@berkeley.edu
+- :name: Sanwu Luo
+  :email: sanwuluo35@berkeley.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2018-08-05 03:53:42.049207000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2018-08-04 20:53:42.049207000 Z
+:status: processed
+:score: 24.0
