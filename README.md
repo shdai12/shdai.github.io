@@ -1,1 +1,1 @@
-## Welcome, this is my collections of projects!
+## Welcome, this is my collection of projects!
